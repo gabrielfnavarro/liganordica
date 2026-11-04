@@ -1,0 +1,15 @@
+/* JUCO 2026 — Pontuação Nórdica */
+.juco{background:#090909}
+.placar{border-top:1px solid var(--line)}
+.place{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);--c:var(--gold2)}
+.place.p2{--c:#c9c9c9}.place.p3{--c:#c0773a}.place.p4{--c:#6f6f6f}
+.pos{font:900 clamp(96px,12vw,170px) "Barlow Condensed";line-height:.78;color:var(--c);letter-spacing:-2px}
+.pos small{display:block;font:600 14px Inter,sans-serif;letter-spacing:0;color:#777;margin-top:14px}
+.res{list-style:none;margin:0;padding:0;align-self:center}
+.res li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 0 15px 22px;border-bottom:1px solid #ffffff0d;position:relative;transition:padding .25s,background .25s}
+.res li:last-child{border-bottom:0}
+.res li:before{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;margin-top:-4px;background:var(--c);transform:rotate(45deg)}
+.res li:hover{padding-left:30px;background:linear-gradient(90deg,#9f000022,transparent)}
+.res .mod{font:700 clamp(26px,3.2vw,40px) "Barlow Condensed";text-transform:uppercase;letter-spacing:.5px}
+.res .cat{font:500 13px Inter,sans-serif;color:#8a8a8a;white-space:nowrap}
+@media(max-width:850px){.place{grid-template-columns:1fr;gap:14px;padding:28px 0}.pos{font-size:110px}.pos small{display:inline;margin-left:10px}}
