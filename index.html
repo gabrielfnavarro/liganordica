@@ -43,11 +43,12 @@ footer{padding:65px 0 25px;border-top:1px solid var(--line);background:#040404}.
 @media(max-width:850px){.war-map{grid-template-columns:1fr}.map-card,.map-info{min-height:430px}.mt-map{min-height:390px}.timeline-detail{grid-template-columns:1fr}.timeline-big{font-size:80px}.awakening-trigger{display:none}}
 
 </style>
+<link rel="stylesheet" href="mural.css">
 </head>
 <body>
 <header>
 <a class="logo" href="#top"><img src="assets/logo.png" alt="Liga Nórdica"><span>LIGA NÓRDICA</span></a>
-<nav><a href="#historia">História</a><a href="#intereng">InterENG</a><a href="#mapa">Mapa</a><a href="#esports">Esports</a><a href="#titulos">Títulos</a><a href="#uniforme">Uniforme</a><a href="#liga">A Liga</a></nav><button class="awakening-trigger" id="openAwakening">⚔ Despertar</button>
+<nav><a href="#historia">História</a><a href="#intereng">InterENG</a><a href="#mapa">Mapa</a><a href="#esports">Esports</a><a href="#mural">Mural</a><a href="#titulos">Títulos</a><a href="#uniforme">Uniforme</a><a href="#liga">A Liga</a></nav><button class="awakening-trigger" id="openAwakening">⚔ Despertar</button>
 </header>
 
 <main id="top">
@@ -107,6 +108,15 @@ footer{padding:65px 0 25px;border-top:1px solid var(--line);background:#040404}.
 </div>
 </section>
 
+<section class="mural" id="mural">
+<div class="wrap">
+<div class="section-title reveal"><div><h2>Nossa história<br>em fotos.</h2></div><p>Arraste para o lado e clique em uma foto para ampliar.</p></div>
+<div class="mural-bar"><div class="mural-filters" id="muralFilters" role="group" aria-label="Filtrar fotos"></div><div class="mural-nav"><b id="muralCount">1 / 1</b><button id="muralPrev" aria-label="Fotos anteriores">←</button><button id="muralNext" aria-label="Próximas fotos">→</button></div></div>
+</div>
+<div class="wall" id="wall" tabindex="0" aria-label="Mural de fotos da Liga Nórdica, role para o lado"></div>
+<div class="wrap"><div class="mural-progress"><span></span></div></div>
+</section>
+
 <section class="quote" id="liga"><div class="wrap reveal"><div class="kicker">Nossa essência</div><h2>EM QUADRA<br><span>SOMOS A GUERRA.</span></h2><p>UNIÃO • COMPETIÇÃO • IDENTIDADE • LEGADO</p></div></section>
 
 <section class="section" id="titulos">
@@ -152,6 +162,7 @@ footer{padding:65px 0 25px;border-top:1px solid var(--line);background:#040404}.
 </section>
 </main>
 <div class="awakening" id="awakening" aria-hidden="true"><div class="awakening-inner"><button class="awakening-close" id="closeAwakening">✕</button><div class="awakening-flash"></div><div class="awakening-runes">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ</div><img class="awakening-logo" src="assets/logo.png" alt="Liga Nórdica"><div class="kicker">Identidade despertada</div><h2>EM QUADRA<br><span>SOMOS A GUERRA.</span></h2><p>UNIÃO • COMPETIÇÃO • IDENTIDADE • LEGADO</p></div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true"><button class="lb-close" aria-label="Fechar">✕</button><div class="lb-stage"><img alt=""></div><div class="lb-foot"><div class="lb-info"></div><div class="lb-ctrl"><button class="lb-prev" aria-label="Foto anterior">←</button><button class="lb-next" aria-label="Próxima foto">→</button></div></div></div>
 <footer><div class="wrap"><div class="foot"><div class="foot-brand"><img src="assets/logo.png" alt=""><span>Liga Nórdica</span></div><div class="foot-right">InterENG • Esportes • Engenharias • UNEMAT</div></div><small>© 2026 Liga Nórdica — Em quadra somos a guerra.</small></div></footer>
 <script>
 const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.12});
@@ -164,5 +175,6 @@ document.querySelectorAll('.node').forEach(node=>node.addEventListener('click',(
 const timelineButtons=[...document.querySelectorAll('.timeline-year')],timelineBig=document.getElementById('timelineBig'),timelineCity=document.getElementById('timelineCity'),timelineProgress=document.getElementById('timelineProgress'); function selectTimeline(btn){timelineButtons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');timelineBig.textContent=btn.dataset.year;timelineCity.textContent=btn.dataset.city;timelineProgress.style.width=`${(timelineButtons.indexOf(btn)/(timelineButtons.length-1))*100}%`;btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})} timelineButtons.forEach(btn=>btn.addEventListener('click',()=>selectTimeline(btn)));// Mantém a página no topo ao carregar; a timeline só centraliza quando o usuário clicar.
 window.addEventListener('load',()=>window.scrollTo(0,0));
 </script>
+<script src="mural.js"></script>
 </body>
 </html>
